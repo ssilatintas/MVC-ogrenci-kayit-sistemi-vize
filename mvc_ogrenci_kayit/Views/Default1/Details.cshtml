@@ -1,0 +1,50 @@
+﻿@model mvc_ogrenci_kayit.Models.Entity.TBLOGRENCILER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Öğrenci Detay</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrBolum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OgrBolum)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Güncelle", "Edit", new { id = Model.Ogrid }) |
+    @Html.ActionLink("Öğrenci Listesine Dön", "Index")
+</p>

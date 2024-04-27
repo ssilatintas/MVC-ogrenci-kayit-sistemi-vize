@@ -1,0 +1,67 @@
+﻿@model mvc_ogrenci_kayit.Models.Entity.TBLOGRENCILER
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Öğrenci Bilgilerini Güncelle</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Ogrid)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrAd, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrAd, new { @class = "form-control", PlaceHolder = "Öğrenci Ad Giriniz", Required = "" })
+            @Html.ValidationMessageFor(model => model.OgrAd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrSoyad, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrSoyad, new { @class = "form-control", PlaceHolder = "Öğrenci Soyad Giriniz", Required = "" })
+            @Html.ValidationMessageFor(model => model.OgrSoyad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrNo, new { @class = "form-control", PlaceHolder = "Öğrenci No Giriniz", Required = "" })
+            @Html.ValidationMessageFor(model => model.OgrNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OgrBolum, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.OgrBolum, new { @class = "form-control", PlaceHolder = "Öğrenci Bölüm Giriniz", Required = "" })
+            @Html.ValidationMessageFor(model => model.OgrBolum, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Güncelle" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Öğrenci Listesine Dön", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

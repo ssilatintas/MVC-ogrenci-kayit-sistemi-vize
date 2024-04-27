@@ -1,0 +1,43 @@
+﻿@model mvc_ogrenci_kayit.Models.Entity.TBLIDARI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>İdari Detay</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idBirimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idBirimi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Detaylar", "Edit", new { id = Model.idid }) |
+    @Html.ActionLink("Akademisyen Listesine Dön", "Index")
+</p>

@@ -1,0 +1,43 @@
+﻿@model mvc_ogrenci_kayit.Models.Entity.TBLAKA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Akademisyen Detay</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AkaAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AkaAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AkaSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AkaSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AkaBolum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AkaBolum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Detaylar", "Edit", new { id = Model.Akaid }) |
+    @Html.ActionLink("Akademisyen Listesine Dön", "Index")
+</p>

@@ -1,0 +1,54 @@
+﻿@model mvc_ogrenci_kayit.Models.Entity.TBLAKA
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Akademisyen Bilgilerini Güncelle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Akaid)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AkaAd, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.AkaAd, new { @class = "form-control", PlaceHolder = "Akademisyen Ad Giriniz", Required = "" })
+                @Html.ValidationMessageFor(model => model.AkaAd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AkaSoyad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.AkaSoyad, new { @class = "form-control", PlaceHolder = "Akademisyen Soyad Giriniz", Required = "" })
+                @Html.ValidationMessageFor(model => model.AkaSoyad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AkaBolum, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.AkaBolum, new { @class = "form-control", PlaceHolder = "Akademisyen Bölüm Giriniz", Required = "" })
+                @Html.ValidationMessageFor(model => model.AkaBolum, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Güncelle" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Akademisyen Listesine Dön", "Index")
+</div>

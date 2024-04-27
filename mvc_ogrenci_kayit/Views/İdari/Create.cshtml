@@ -1,0 +1,55 @@
+﻿@model mvc_ogrenci_kayit.Models.Entity.TBLIDARI
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>İDARİ KAYDI</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.idAd, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*Html.EditorFor(model => model.idAd, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextBoxFor(model => model.idAd, new { @class = "form-control", PlaceHolder = "İdari Ad Giriniz", Required = "" })
+                @Html.ValidationMessageFor(model => model.idAd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idSoyad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*Html.EditorFor(model => model.idSoyad, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextBoxFor(model => model.idSoyad, new { @class = "form-control", PlaceHolder = "İdari Soyad Giriniz", Required = "" })
+                @Html.ValidationMessageFor(model => model.idSoyad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idBirimi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*Html.EditorFor(model => model.idBirimi, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextBoxFor(model => model.idBirimi, new { @class = "form-control", PlaceHolder = "İdari Birim Giriniz", Required = "" })
+                @Html.ValidationMessageFor(model => model.idBirimi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("İdari Listesine Dön", "Index")
+</div>

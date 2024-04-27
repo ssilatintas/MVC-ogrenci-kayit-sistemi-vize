@@ -1,0 +1,46 @@
+﻿@model IEnumerable<mvc_ogrenci_kayit.Models.Entity.TBLIDARI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>İDARİ LİSTESİ</h2>
+
+<p>
+    @Html.ActionLink("İdari Kaydı", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idBirimi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idAd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idSoyad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idBirimi)
+        </td>
+        <td>
+            @Html.ActionLink("GÜNCELLE", "Edit", new { id=item.idid }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("DETAYLAR", "Details", new { id=item.idid }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("SİL", "Delete", new { id=item.idid }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

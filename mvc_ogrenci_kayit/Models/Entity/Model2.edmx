@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MvcDbVizeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLAKA">
+          <Key>
+            <PropertyRef Name="Akaid" />
+          </Key>
+          <Property Name="Akaid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AkaAd" Type="varchar" MaxLength="50" />
+          <Property Name="AkaSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="AkaBolum" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TBLIDARI">
+          <Key>
+            <PropertyRef Name="idid" />
+          </Key>
+          <Property Name="idid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAd" Type="varchar" MaxLength="50" />
+          <Property Name="idSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="idBirimi" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="TBLOGRENCILER">
+          <Key>
+            <PropertyRef Name="Ogrid" />
+          </Key>
+          <Property Name="Ogrid" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrAd" Type="varchar" MaxLength="50" />
+          <Property Name="OgrSoyad" Type="varchar" MaxLength="50" />
+          <Property Name="OgrNo" Type="smallint" />
+          <Property Name="OgrBolum" Type="varchar(max)" />
+        </EntityType>
+        <EntityContainer Name="MvcDbVizeModelStoreContainer">
+          <EntitySet Name="TBLAKA" EntityType="Self.TBLAKA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLIDARI" EntityType="Self.TBLIDARI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLOGRENCILER" EntityType="Self.TBLOGRENCILER" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MvcDbVizeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLAKA">
+          <Key>
+            <PropertyRef Name="Akaid" />
+          </Key>
+          <Property Name="Akaid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AkaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AkaSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AkaBolum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLIDARI">
+          <Key>
+            <PropertyRef Name="idid" />
+          </Key>
+          <Property Name="idid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idBirimi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLOGRENCILER">
+          <Key>
+            <PropertyRef Name="Ogrid" />
+          </Key>
+          <Property Name="Ogrid" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OgrSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OgrNo" Type="Int16" />
+          <Property Name="OgrBolum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="MvcDbVizeEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLAKAs" EntityType="Self.TBLAKA" />
+          <EntitySet Name="TBLIDARIs" EntityType="Self.TBLIDARI" />
+          <EntitySet Name="TBLOGRENCILERs" EntityType="Self.TBLOGRENCILER" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MvcDbVizeModelStoreContainer" CdmEntityContainer="MvcDbVizeEntities1">
+          <EntitySetMapping Name="TBLAKAs">
+            <EntityTypeMapping TypeName="MvcDbVizeModel.TBLAKA">
+              <MappingFragment StoreEntitySet="TBLAKA">
+                <ScalarProperty Name="Akaid" ColumnName="Akaid" />
+                <ScalarProperty Name="AkaAd" ColumnName="AkaAd" />
+                <ScalarProperty Name="AkaSoyad" ColumnName="AkaSoyad" />
+                <ScalarProperty Name="AkaBolum" ColumnName="AkaBolum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLIDARIs">
+            <EntityTypeMapping TypeName="MvcDbVizeModel.TBLIDARI">
+              <MappingFragment StoreEntitySet="TBLIDARI">
+                <ScalarProperty Name="idid" ColumnName="idid" />
+                <ScalarProperty Name="idAd" ColumnName="idAd" />
+                <ScalarProperty Name="idSoyad" ColumnName="idSoyad" />
+                <ScalarProperty Name="idBirimi" ColumnName="idBirimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLOGRENCILERs">
+            <EntityTypeMapping TypeName="MvcDbVizeModel.TBLOGRENCILER">
+              <MappingFragment StoreEntitySet="TBLOGRENCILER">
+                <ScalarProperty Name="Ogrid" ColumnName="Ogrid" />
+                <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+                <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+                <ScalarProperty Name="OgrBolum" ColumnName="OgrBolum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

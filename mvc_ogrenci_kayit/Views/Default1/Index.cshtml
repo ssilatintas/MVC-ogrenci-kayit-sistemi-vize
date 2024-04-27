@@ -1,0 +1,53 @@
+﻿@model IEnumerable<mvc_ogrenci_kayit.Models.Entity.TBLOGRENCILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>ÖĞRENCİ LİSTESİ</h2>
+<p>
+@Html.ActionLink("YENİ KAYIT", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OgrBolum)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.OgrAd)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OgrSoyad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OgrNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OgrBolum)
+    </td>
+    <td>
+        @Html.ActionLink("GÜNCELLE", "Edit", new { id = item.Ogrid }, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("DETAYLAR", "Details", new { id = item.Ogrid }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("SİL", "Delete", new { id = item.Ogrid }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
+    } 
+
+</table>
+
+
